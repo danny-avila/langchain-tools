@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "alt": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,13 +15,16 @@
     "@types/react-dom": "18.2.7",
     "ai": "^2.1.22",
     "autoprefixer": "10.4.14",
+    "clsx": "^2.0.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "langchain": "^0.0.114",
     "next": "13.4.10",
     "openai-edge": "^1.2.1",
     "postcss": "8.4.26",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   }
