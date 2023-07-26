@@ -1,34 +1,42 @@
-'use client'
- 
-import { useChat } from 'ai/react'
+'use client';
+
+import { useChat } from 'ai/react';
 import { cn } from '@/lib';
- 
+
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat()
- 
+  const { messages, input, handleInputChange, handleSubmit } = useChat();
+
   return (
-    <div className="mx-auto w-full max-w-md py-24 flex flex-col bg-gray-200 rounded-lg shadow-md p-6">
-      <div className="overflow-y-auto mb-4 p-3">
-        {messages.map(m => (
+    <div className="mx-auto mt-2 flex w-full max-w-md flex-col rounded-lg bg-gray-200 p-6 py-24 shadow-md ">
+      <div className="mb-4 overflow-y-auto p-3">
+        {messages.map((m) => (
           <div
-          key={m.id}
-          className={cn("p-3 rounded-lg mb-2", m.role === 'user' ? 'bg-indigo-500 text-white self-end' : 'bg-gray-100' )}
+            key={m.id}
+            className={cn(
+              'mb-2 rounded-lg p-3',
+              m.role === 'user' ? 'self-end bg-indigo-500 text-white' : 'bg-gray-100',
+            )}
           >
             <span className="font-semibold">{m.role === 'user' ? 'You: ' : 'AI: '}</span>
             <span>{m.content}</span>
           </div>
         ))}
       </div>
- 
+
       <form onSubmit={handleSubmit} className="flex items-center">
         <input
-          className="w-full border border-gray-300 rounded shadow p-2 mr-2"
+          className="mr-2 w-full rounded border border-gray-300 p-2 shadow"
           placeholder="Say something..."
           value={input}
           onChange={handleInputChange}
         />
-        <button type="submit" className="bg-indigo-500 text-white p-2 rounded hover:bg-indigo-600 transition">Send</button>
+        <button
+          type="submit"
+          className="rounded bg-indigo-500 p-2 text-white transition hover:bg-indigo-600"
+        >
+          Send
+        </button>
       </form>
     </div>
-  )
+  );
 }
